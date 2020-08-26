@@ -14,7 +14,7 @@
 
 #### 目录结构
 docker-lnmp
-├── docker-compose.yml 
+├── docker-compose.yml   
 ├── nginx
 │  ├── conf # nginx相关配置
 │  ├── log  # nginx日志，访问日志、错误日志
