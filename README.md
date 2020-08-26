@@ -13,20 +13,20 @@
 * compose 2.0
 
 #### 目录结构
-docker-lnmp
+docker-lnmp   
 ├── docker-compose.yml   
-├── nginx
-│  ├── conf # nginx相关配置
-│  ├── log  # nginx日志，访问日志、错误日志
-│  └── ssl  # ssl证书
-├── html # web文件目录
-├── mysql
-│  ├── conf # mysql相关配置
-│  ├── log  # mysql日志
-│  ├── init # 初始文件
-│  └── data # mysql数据
-├── php
-│  ├── conf  # php相关配置
+├── nginx   
+│  ├── conf # nginx相关配置   
+│  ├── log  # nginx日志，访问日志、错误日志   
+│  └── ssl  # ssl证书   
+├── html # web文件目录   
+├── mysql   
+│  ├── conf # mysql相关配置   
+│  ├── log  # mysql日志   
+│  ├── init # 初始文件   
+│  └── data # mysql数据   
+├── php   
+│  ├── conf  # php相关配置   
 │  └── Dockerfile  # php镜像文件
 
 ### 安装
