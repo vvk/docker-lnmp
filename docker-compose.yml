@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  mysql:
+    hostname: mysql
+    restart: always
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${PWD}/mysql/conf:/etc/mysql
+      - ${PWD}/mysql/log:/var/log/mysql
+      - ${PWD}/mysql/data:/var/lib/mysql
+      - ${PWD}/mysql/init:/var/lib//docker-entrypoint-initdb.d/ #初始化文件
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123456
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci  
+  php:
+    hostname: php
+    restart: always
+    build:
+      context: ${PWD}/php
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - ${PWD}/html:/var/www/html
+      - ${PWD}/php/conf:/usr/local/etc
+  nginx:
+    hostname: nginx
+    restart: always
+    image: nginx:1.19.2-alpine
+    depends_on:     #依赖关系，需要先运行php
+      - "php"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${PWD}/nginx/conf:/etc/nginx/conf.d
+      - ${PWD}/nginx/ssl:/etc/nginx/ssl
+      - ${PWD}/nginx/log:/var/log/nginx
+      - ${PWD}/html:/usr/share/nginx/html
+  composer:
+    image: composer:2.0
+    container_name: composer
+    restart: "no"
+    volumes:
+      - ${PWD}/html:/app
