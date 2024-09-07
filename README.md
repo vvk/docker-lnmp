@@ -7,9 +7,9 @@
 
 #### 安装内容：
 
-* nginx 1.9.2
+* nginx 1.27.0
 * mysql 5.7
-* php 7.4
+* php 8.2
 * compose 2.0
 
 #### 目录结构
