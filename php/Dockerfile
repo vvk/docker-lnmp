@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) gettext calendar pdo_mysql bcmath zip exif ftp \
         intl mysqli opcache sockets soap \
-    && pecl install mongodb csv swoole tideways xhprof xlswriter xdebug mysqli \
+    && pecl install mongodb csv swoole tideways xhprof xlswriter xdebug mysqli redis \
 
     # 安装 Composer
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
