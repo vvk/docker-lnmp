@@ -30,6 +30,17 @@ services:
       - ${PWD}/html:/var/www/html:rw
       - ${PWD}/php/log:/var/logs/php:rw
       - ${PWD}/php/conf:/usr/local/etc:rw
+  php84:
+    image: sunwanqing/php84-fpm:1.0
+    hostname: php84
+    restart: always
+    container_name: php84
+    ports:
+      - "9084:9084"
+    volumes:
+      - ${PWD}/html:/var/www/html:rw
+      - ${PWD}/php84/log:/var/logs/php:rw
+      - ${PWD}/php84/conf:/usr/local/etc:rw
   nginx:
     hostname: nginx
     restart: always
