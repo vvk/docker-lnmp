@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
         libmemcached-dev \
         libhiredis-dev \
         libxml2-dev \
-        --no-install-recommends && rm -rf /var/lib/apt/
+        --no-install-recommends && rm -rf /var/lib/apt/ \
         git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
