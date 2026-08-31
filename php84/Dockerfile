@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
         --no-install-recommends && rm -rf /var/lib/apt/ \
         git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) gettext calendar pdo pdo_mysql bcmath zip exif ftp \
         intl mysqli opcache sockets soap \
     && pecl install mongodb csv swoole tideways xhprof xlswriter xdebug mysqli redis fileinfo zlib \
